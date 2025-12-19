@@ -1,0 +1,844 @@
+/* --- 1. GLOBAL / BASE STYLES --- */
+
+:root {
+  --primary-blue: rgb(224, 153, 0);
+  --dark-header-footer: rgb(16, 77, 145);
+  --text-color-dark: #333;
+  --text-color-light: #f4f7f6;
+  --light-bg: #f4f7f6;
+  --white-bg: #ffffff;
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --shadow-medium: rgba(0, 0, 0, 0.08);
+  --border-light: #eee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: var(--light-bg);
+  color: var(--text-color-dark);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  background-color: var(--dark-header-footer);
+  padding: 20px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 8px var(--shadow-light);
+  border-bottom: 3px solid var(--primary-blue);
+}
+
+.header .logo {
+  font-size: 1.8em;
+  font-weight: 700;
+  color: var(--primary-blue);
+  text-decoration: none;
+}
+
+.header nav ul {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+}
+
+.header nav a {
+  text-decoration: none;
+  color: var(--text-color-light);
+  font-weight: 500;
+  padding: 5px 0;
+  position: relative;
+}
+
+.header nav a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: var(--primary-blue);
+  left: 0;
+  bottom: -5px;
+}
+
+.header nav a:hover {
+  color: var(--primary-blue);
+}
+
+.header nav a:hover::after {
+  width: 100%;
+}
+
+.header nav a.active-nav-link {
+    color: var(--primary-blue);
+}
+
+.header nav a.active-nav-link::after {
+    width: 100%;
+}
+
+/* Dropdown Navigation Styles */
+.header nav ul li.dropdown {
+  position: relative;
+}
+
+.header nav ul li.dropdown .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: var(--dark-header-footer);
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 10;
+  list-style: none;
+  padding: 10px 0;
+  border-radius: 0 0 8px 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  top: calc(100% + 5px);
+}
+
+.header nav ul li.dropdown .dropdown-content li {
+  width: 100%;
+}
+
+.header nav ul li.dropdown .dropdown-content li a {
+  color: var(--text-color-light);
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.header nav ul li.dropdown .dropdown-content li a:hover {
+  color: var(--primary-blue);
+}
+
+.header nav ul li.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.header nav ul li.dropdown > a::after {
+    display: none;
+}
+
+.header nav ul li.dropdown > a.active-nav-link {
+    color: var(--primary-blue);
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card-header-title {
+  width: 100%;
+  font-size: 1.7em;
+  font-weight: 600;
+  color: var(--text-color-dark);
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+}
+
+.footer {
+  background-color: var(--dark-header-footer);
+  color: var(--text-color-light);
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+  margin-top: auto;
+}
+
+
+/* --- 2. INDEX PAGE STYLES --- */
+
+.hero-section {
+  color: var(--text-color-light);
+  padding: 80px 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://dinus.ac.id/wp-content/uploads/2024/07/Gedug-G-Udinus-1024x675.jpg');
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+}
+
+.hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3.5em;
+  font-weight: 700;
+  margin-bottom: 15px;
+  line-height: 1.2;
+  color: #fff;
+}
+
+.hero-content p {
+  font-size: 1.2em;
+  font-weight: 300;
+  margin-bottom: 30px;
+  color: #f0f0f0;
+}
+
+.hero-button {
+  display: inline-block;
+  background-color: var(--primary-blue);
+  color: #fff;
+  padding: 15px 30px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1em;
+}
+
+.hero-button:hover {
+  background-color: rgb(190, 120, 0);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.main-content-below-hero {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 1050px;
+  margin: 40px auto;
+  width: 90%;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.section-recent-articles {
+  width: 45%;
+  flex-shrink: 0;
+}
+
+.section-featured-gallery {
+  width: calc(55% - 40px);
+  flex-shrink: 0;
+}
+
+.section-recent-articles .card-header-title,
+.section-featured-gallery .card-header-title {
+  margin-bottom: 30px;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 15px;
+  color: var(--text-color-dark);
+}
+
+.section-recent-articles .article-card {
+  margin-bottom: 20px;
+}
+
+.gallery-container-index {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 0;
+}
+
+.gallery-item-index {
+    background-color: var(--white-bg);
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+}
+
+.gallery-item-index:hover {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.gallery-item-index img {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    display: block;
+    cursor: pointer;
+}
+
+.view-all-link {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.view-all-link a {
+  display: inline-block;
+  font-size: 1.1em;
+  color: var(--dark-header-footer);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.view-all-link a:hover {
+  color: var(--primary-blue);
+  text-decoration: underline;
+}
+
+
+/* --- 3. GALLERY PAGE STYLES --- */
+
+.gallery-section .card-header-title {
+  margin-bottom: 30px;
+  text-align: left;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 15px;
+  color: var(--dark-header-footer);
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.gallery-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  background-color: var(--white-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.gallery-item:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+  cursor: pointer;
+}
+
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+}
+
+.lightbox-overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.lightbox-overlay img {
+  max-width: 90%;
+  max-height: 90vh;
+  display: block;
+  margin: auto;
+  object-fit: contain;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  font-size: 40px;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1;
+}
+
+.lightbox-close:hover {
+  color: var(--primary-blue);
+}
+
+
+/* --- 4. ARTICLE PAGE STYLES --- */
+
+.articles-container {
+  background-color: var(--light-bg);
+  padding: 0;
+  width: 90%;
+  max-width: 1050px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  padding-bottom: 40px;
+}
+
+.articles-container .card-header-title {
+  width: 100%;
+  font-size: 1.7em;
+  font-weight: 600;
+  color: var(--text-color-dark);
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid var(--border-light);
+  text-align: left;
+}
+
+.article-card {
+  background-color: var(--white-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Mengubah proporsi gambar ke ukuran fixed untuk kesederhanaan */
+.article-image-container {
+  width: 150px; /* Lebar tetap gambar */
+  height: 150px; /* Tinggi tetap gambar (rasio 1:1) */
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0; /* Mencegah gambar menyusut */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.article-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.article-content {
+  flex-grow: 1; /* Konten teks mengisi sisa ruang */
+  padding-right: 15px;
+}
+
+.article-category,
+.article-sub-title,
+.article-date {
+  text-align: center;
+}
+
+.article-content.text-align-left .article-excerpt {
+  text-align: left;
+}
+
+.article-content.text-align-right .article-excerpt {
+  text-align: right;
+}
+
+.article-content.text-align-center .article-excerpt {
+  text-align: center;
+}
+
+.article-content.text-align-justify .article-excerpt {
+  text-align: justify;
+}
+
+.article-category {
+  font-size: 1.1em;
+  font-weight: 500;
+  color: #555;
+  margin-bottom: 5px;
+}
+
+.article-sub-title {
+  font-size: 1.4em;
+  font-weight: 600;
+  color: var(--dark-header-footer);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.article-date {
+  font-size: 0.85em;
+  color: #777;
+  margin-bottom: 15px;
+}
+
+.article-excerpt {
+  font-size: 1em;
+  color: var(--text-color-dark);
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
+.read-more {
+  display: none;
+}
+
+
+/* --- 5. GUESTBOOK PAGE STYLES --- */
+
+.guestbook-card {
+  background-color: var(--white-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px var(--shadow-medium);
+  padding: 35px;
+  width: 90%;
+  max-width: 600px;
+}
+
+.guestbook-form .form-group {
+  margin-bottom: 20px;
+}
+
+.guestbook-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 500;
+  color: var(--text-color-dark);
+}
+
+.guestbook-form .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.guestbook-form input[type="text"],
+.guestbook-form input[type="email"],
+.guestbook-form textarea,
+.guestbook-form select {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-light);
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1em;
+  color: var(--text-color-dark);
+  background-color: var(--light-bg);
+}
+
+.guestbook-form input[type="text"]:focus,
+.guestbook-form input[type="email"]:focus,
+.guestbook-form textarea:focus,
+.guestbook-form select:focus {
+  border-color: var(--primary-blue);
+  box-shadow: 0 0 0 3px rgba(224, 153, 0, 0.2);
+  outline: none;
+}
+
+.guestbook-form textarea {
+  resize: vertical;
+}
+
+.guestbook-form .radio-group,
+.guestbook-form .checkbox-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.guestbook-form .radio-group label,
+.guestbook-form .checkbox-group label {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.guestbook-form input[type="radio"],
+.guestbook-form input[type="checkbox"] {
+  margin-right: 8px;
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  accent-color: var(--dark-header-footer);
+}
+
+.form-buttons {
+  display: flex;
+  gap: 15px;
+  margin-top: 30px;
+}
+
+.form-buttons button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.form-buttons button[type="submit"] {
+  background-color: var(--dark-header-footer);
+  color: var(--text-color-light);
+}
+
+.form-buttons button[type="submit"]:hover {
+  background-color: rgb(12, 59, 115);
+}
+
+.form-buttons button[type="reset"] {
+  background-color: #e0e0e0;
+  color: var(--text-color-dark);
+}
+
+.form-buttons button[type="reset"]:hover {
+  background-color: #d0d0d0;
+}
+
+
+/* --- 6. PROFIL PAGE STYLES (Detail Mahasiswa) --- */
+
+.student-detail-card {
+  background-color: var(--white-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px var(--shadow-medium);
+  padding: 35px;
+  width: 90%;
+  max-width: 900px;
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+.student-info-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex-shrink: 0;
+  width: 180px;
+}
+
+.student-photo-container {
+  width: 180px;
+  height: 210px;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-bottom: 15px;
+}
+
+.student-photo-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.student-info-right {
+  flex-grow: 1;
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 12px 0px;
+  align-items: baseline;
+  min-width: 300px;
+  text-align: left;
+}
+
+.info-item {
+  display: contents;
+}
+
+.info-label {
+  font-weight: 500;
+  color: #666;
+  text-align: left;
+  white-space: nowrap;
+  grid-column: 1;
+}
+
+.info-colon {
+  font-weight: 400;
+  color: var(--text-color-dark);
+  text-align: left;
+  padding-left: 15px;
+  padding-right: 5px;
+  grid-column: 2;
+}
+
+.info-value {
+  color: var(--text-color-dark);
+  font-weight: 400;
+  text-align: left;
+  grid-column: 3;
+}
+
+.info-value .email-line {
+  display: block;
+}
+
+.info-value .email-line:first-of-type {
+  margin-bottom: 2px;
+}
+
+.status-badge {
+  background-color: #28a745;
+  color: #fff;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 600;
+  box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+}
+
+/* --- 7. CONTACT PAGE STYLES --- */
+
+.contact-card {
+  background-color: var(--white-bg);
+  border-radius: 12px;
+  box-shadow: 0 6px 20px var(--shadow-medium);
+  padding: 35px;
+  width: 90%;
+  max-width: 600px;
+}
+
+.contact-form .form-description {
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.contact-description { /* Deskripsi untuk halaman kontak non-form */
+  font-size: 0.95em;
+  color: #666;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contact-methods-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Jarak antar item kontak */
+  width: 100%;
+}
+
+.contact-method-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  background-color: var(--light-bg);
+  padding: 15px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: var(--text-color-dark);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contact-method-item:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.contact-method-icon {
+  font-size: 2.2em; /* Ukuran ikon lebih besar */
+  line-height: 1; /* Pastikan ikon tidak punya tinggi baris ekstra */
+  flex-shrink: 0; /* Mencegah ikon menyusut */
+}
+
+.contact-method-text {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1; /* Teks mengisi sisa ruang */
+}
+
+.contact-method-name {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--dark-header-footer);
+  margin-bottom: 3px;
+}
+
+.contact-method-handle {
+  font-size: 0.95em;
+  color: #555;
+}
+
+.contact-note {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 30px;
+    text-align: center;
+}
+
+/* --- 8. ACHIEVEMENTS PAGE STYLES --- */
+
+.achievements-section .card-header-title {
+  margin-bottom: 30px;
+  text-align: left;
+  border-bottom: 2px solid var(--border-light);
+  padding-bottom: 15px;
+  color: var(--dark-header-footer);
+  max-width: 900px; /* Sesuaikan dengan lebar kartu lainnya */
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+
+.achievements-container {
+  display: flex;
+  flex-direction: column;
+  gap: 25px; /* Jarak antar kartu prestasi */
+  max-width: 900px; /* Lebar maksimum kontainer prestasi */
+  margin: 0 auto; /* Tengah kontainer */
+  width: 90%;
+  padding-bottom: 40px; /* Jarak bawah sebelum footer */
+}
+
+.achievement-card {
+  background-color: var(--white-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+}
+
+.achievement-card h3 {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: var(--dark-header-footer);
+  margin-bottom: 8px;
+}
+
+.achievement-card .achievement-date {
+  font-size: 0.9em;
+  color: #777;
+  margin-bottom: 15px;
+  font-style: italic;
+}
+
+.achievement-card .achievement-description {
+  font-size: 1em;
+  color: var(--text-color-dark);
+  line-height: 1.6;
+}

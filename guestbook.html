@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BlogKu - Buku Tamu</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="header">
+      <a href="#" class="logo">BlogKu</a>
+      <nav>
+        <ul>
+          <li><a href="index.html">BERANDA</a></li>
+          <li><a href="gallery.html">GALERI</a></li>
+          <li><a href="article.html">ARTIKEL</a></li>
+          <li>
+            <a href="guestbook.html" class="active-nav-link">BUKU TAMU</a>
+          </li>
+          <li><a href="profile.html">PROFIL</a></li>
+          <li class="dropdown">
+            <a href="#">LAINNYA &#9662;</a>
+            <ul class="dropdown-content">
+              <li><a href="achievements.html">PRESTASI</a></li>
+              <li><a href="contact.html">KONTAK</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main class="main-content">
+      <section class="guestbook-card">
+        <h2 class="card-header-title">Buku Tamu</h2>
+
+        <form action="#" method="post" class="guestbook-form">
+          <div class="form-group">
+            <label for="nama_lengkap" class="sr-only">Nama Lengkap</label>
+            <input
+              type="text"
+              id="nama_lengkap"
+              name="nama_lengkap"
+              placeholder="Nama Lengkap"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="sr-only">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="alamat" class="sr-only">Alamat</label>
+            <input
+              type="text"
+              id="alamat"
+              name="alamat"
+              placeholder="Alamat"
+              required
+            />
+          </div>
+
+          <div class="form-group">
+            <p>Jenis Kelamin:</p>
+            <div class="radio-group">
+              <label>
+                <input type="radio" name="jenis_kelamin" value="Laki-Laki" />
+                Laki-Laki
+              </label>
+              <label>
+                <input type="radio" name="jenis_kelamin" value="Perempuan" />
+                Perempuan
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <p>Aktif pada sosial media:</p>
+            <div class="checkbox-group">
+              <label>
+                <input
+                  type="checkbox"
+                  name="sosial_media[]"
+                  value="Instagram"
+                />
+                Instagram
+              </label>
+              <label>
+                <input type="checkbox" name="sosial_media[]" value="Facebook" />
+                Facebook
+              </label>
+              <label>
+                <input type="checkbox" name="sosial_media[]" value="Twitter" />
+                Twitter
+              </label>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="sumber_web">Mengetahui web ini dari:</label>
+            <select id="sumber_web" name="sumber_web">
+              <option value="">-- Pilih Opsi --</option>
+              <option value="Web UDINUS">Web UDINUS</option>
+              <option value="Surat Kabar">Surat Kabar</option>
+              <option value="Teman Kerabat">Teman Kerabat</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="pesan" class="sr-only">Pesan</label>
+            <textarea
+              id="pesan"
+              name="pesan"
+              placeholder="Pesan"
+              rows="5"
+            ></textarea>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit">Kirim</button>
+            <button type="reset">Reset</button>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2025 BlogKu. All Rights Reserved.</p>
+    </footer>
+  </body>
+</html>
